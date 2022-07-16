@@ -1,0 +1,12 @@
+  @use '@/assets/scss/mixins';
+.tv-series,
+  .results {
+    margin-top: 0.625rem;
+
+    @include mixins.md {
+      margin-top: 1.125rem;
+    }
+    @include mixins.lg {
+      margin-top: 1.25rem;
+    }
+  }
