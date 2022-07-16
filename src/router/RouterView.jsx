@@ -10,13 +10,15 @@ const RouterView = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/series" element={<Series />} />
-        <Route path="/bookmarks" element={<Bookmark />} />
-        <Route path="/:notfound(.*)/*" element={<h1>Not Found</h1>} />
-      </Routes>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/bookmarks" element={<Bookmark />} />
+          <Route path="/:notfound(.*)/*" element={<h1>Not Found</h1>} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 };

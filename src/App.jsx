@@ -6,9 +6,7 @@ import "./App.scss";
 function App() {
   return (
     <VideosContextProvider>
-      <main className="main">
-        <RouterView />
-      </main>
+      <RouterView />
     </VideosContextProvider>
   );
 }
