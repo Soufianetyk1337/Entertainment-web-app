@@ -1,0 +1,42 @@
+@use '@/assets/scss/mixins';
+.search-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include mixins.md {
+      gap: 1.5rem;
+    }
+
+    svg {
+      width: 1.5rem;
+
+      @include mixins.md {
+        width: 2rem;
+      }
+    }
+
+    input {
+      position: relative;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      caret-color: var(--clr-accent);
+      padding-bottom: 14px;
+      border-bottom: 1px solid transparent;
+
+      @include mixins.md {
+        font-size: 1.5rem;
+      }
+
+      &:focus {
+        border-color: var(--clr-grayish-blue);
+      }
+
+      &::placeholder {
+        opacity: 0.5;
+        color: inherit;
+      }
+    }
+  }
