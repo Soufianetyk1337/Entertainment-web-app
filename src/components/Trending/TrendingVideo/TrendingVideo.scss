@@ -1,0 +1,129 @@
+@use '@/assets/scss/mixins';
+
+.video {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsl(0 0% 0% / 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    gap: 1.25rem;
+    border: none;
+    background-color: hsl(0 0% 100% / 0.25);
+    height: 48px;
+    width: 117px;
+    padding: 9px;
+    border-radius: 100rem;
+    display: none;
+
+    svg {
+      width: 30px;
+      aspect-ratio: 1;
+    }
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:hover .play-btn {
+    display: flex;
+  }
+
+  &__bookmark-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    background-color: hsl(223deg 30% 9% / 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:where(:focus, :hover) {
+      background-color: var(--clr-white);
+      color: var(--clr-background);
+    }
+
+    @include mixins.md {
+      top: 1rem;
+      right: 1.5rem;
+    }
+
+    svg {
+      height: 0.875rem;
+    }
+  }
+
+  &__content {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+    padding: 1rem;
+    position: relative;
+
+    @include mixins.md {
+      padding: 1.5rem;
+    }
+
+    .dot {
+      width: 3px;
+      aspect-ratio: 1;
+      background-color: var(--clr-text);
+      border-radius: 50%;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.75;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+
+    @include mixins.md {
+      font-size: calc(15rem / 16);
+    }
+  }
+  &__category {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    svg {
+      width: 0.75rem;
+    }
+  }
+  &__title {
+    font-size: calc(15rem / 16);
+
+    @include mixins.md {
+      font-size: 1.5rem;
+    }
+  }
+}
