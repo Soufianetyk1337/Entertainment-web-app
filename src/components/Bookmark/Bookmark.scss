@@ -1,0 +1,26 @@
+ @use '@/assets/scss/mixins';
+ 
+  .bookmarked-videos,
+  .results {
+    margin-top: 0.625rem;
+
+    @include mixins.md {
+      margin-top: 1.125rem;
+    }
+    @include mixins.lg {
+      margin-top: 1.25rem;
+    }
+  }
+  .bookmarked-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .no-bookmark {
+    font-size: 1.25rem;
+
+    @include mixins.md {
+      font-size: 2rem;
+    }
+  }
