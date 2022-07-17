@@ -33,7 +33,8 @@ const TrendingSection = ({ videos }) => {
   return (
     <section className="trending">
       <h2 className="trending__title">Trending</h2>
-      <ul className="trending__videos">
+
+      <div className="trending__videos" role="tablist">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
@@ -45,19 +46,19 @@ const TrendingSection = ({ videos }) => {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           effect="fade"
+          role="tab"
         >
-          {videos.length &&
-            videos.map((video) => {
-              return (
-                <SwiperSlide key={video.title}>
-                  <li key={video.title} className="trending__video">
-                    <TrendingVideo video={video} />
-                  </li>
-                </SwiperSlide>
-              );
-            })}
+          {videos.map((video) => {
+            return (
+              <SwiperSlide key={video.title}>
+                <article key={video.title} className="trending__video">
+                  <TrendingVideo video={video} />
+                </article>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
-      </ul>
+      </div>
     </section>
   );
 };

@@ -14,7 +14,7 @@ const Series = () => {
       ) : (
         <VideoList
           className="results"
-          title="`Found ${filteredSeries.length} results for '${search}'`"
+          title={`Found ${filteredSeries().length} results for '${search}'`}
           videos={filteredSeries()}
         />
       )}
