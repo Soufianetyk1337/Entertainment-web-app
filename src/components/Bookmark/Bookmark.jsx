@@ -4,7 +4,7 @@ import VideoList from "@/components/Video/VideoList/VideoList";
 import { VideosContext } from "@/contexts/VideosContext";
 import "./Bookmark.scss";
 const Bookmark = () => {
-  const { getters } = useContext(VideosContext);
+  const { getters, search } = useContext(VideosContext);
   const { bookmarkedMovies, filteredBookmarkedVideos, bookmarkedSeries } =
     getters;
   return (
@@ -22,13 +22,14 @@ const Bookmark = () => {
             videos={bookmarkedMovies()}
           />
         )}
-        {bookmarkedSeries().length > 0 ? (
+        {bookmarkedSeries().length > 0 && (
           <VideoList
             className="bookmarked-tv-series"
             title="Bookmarked TV Series"
             videos={bookmarkedSeries()}
           />
-        ) : (
+        )}
+        {search && (
           <VideoList
             className="results"
             title="`Found ${filteredBookmarkedVideos().length} results for '${search}'`"
