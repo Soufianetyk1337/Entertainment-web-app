@@ -21,7 +21,16 @@
     display: grid;
     grid-template-columns: repeat(var(--column-count), 1fr);
     gap: 1rem;
-
+    @include mixins.xs {
+      --column-count: 1;
+      row-gap: 1.5rem;
+      column-gap: .875rem;
+    }
+    @include mixins.sm {
+      --column-count: 2;
+      row-gap: 1.5rem;
+      column-gap: 1;
+    }
     @include mixins.md {
       --column-count: 3;
       row-gap: 1.5rem;
@@ -29,17 +38,17 @@
     }
 
     @include mixins.lg {
-      --column-count: 4;
+      --column-count: 3;
       row-gap: 2rem;
       column-gap: 2.5rem;
     }
 
     @include mixins.xl {
-      --column-count: 5;
+      --column-count: 4;
     }
 
     @include mixins.xxl {
-      --column-count: 6;
+      --column-count: 5;
     }
   }
 }
