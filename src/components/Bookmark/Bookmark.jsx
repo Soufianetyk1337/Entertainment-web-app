@@ -10,33 +10,36 @@ const Bookmark = () => {
   return (
     <>
       <Searchbar placeholder="Search for bookmarked shows" />
-      <div className="bookmarked-videos">
-        {filteredBookmarkedVideos().length === 0 && (
-          <h2 className="no-bookmark">You currenly have no bookmark.</h2>
-        )}
+      {!search ? (
+        <div className="bookmarked-videos">
+          {filteredBookmarkedVideos().length === 0 && (
+            <h2 className="no-bookmark">You currenly have no bookmark.</h2>
+          )}
 
-        {bookmarkedMovies().length > 0 && (
-          <VideoList
-            className="bookmarked-movies"
-            title="Bookmarked Movies"
-            videos={bookmarkedMovies()}
-          />
-        )}
-        {bookmarkedSeries().length > 0 && (
-          <VideoList
-            className="bookmarked-tv-series"
-            title="Bookmarked TV Series"
-            videos={bookmarkedSeries()}
-          />
-        )}
-        {search && (
-          <VideoList
-            className="results"
-            title="`Found ${filteredBookmarkedVideos().length} results for '${search}'`"
-            videos={filteredBookmarkedVideos()}
-          />
-        )}
-      </div>
+          {bookmarkedMovies().length > 0 && (
+            <VideoList
+              className="bookmarked-movies"
+              title="Bookmarked Movies"
+              videos={bookmarkedMovies()}
+            />
+          )}
+          {bookmarkedSeries().length > 0 && (
+            <VideoList
+              className="bookmarked-tv-series"
+              title="Bookmarked TV Series"
+              videos={bookmarkedSeries()}
+            />
+          )}
+        </div>
+      ) : (
+        <VideoList
+          className="results"
+          title={`Found ${
+            filteredBookmarkedVideos().length
+          } results for '${search}'`}
+          videos={filteredBookmarkedVideos()}
+        />
+      )}
     </>
   );
 };
