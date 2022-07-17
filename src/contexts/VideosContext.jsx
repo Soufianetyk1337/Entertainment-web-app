@@ -9,6 +9,7 @@ const VideosContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [rerender, setRerender] = useState(false);
 
   const getters = {
     trendingVideos: () => {
@@ -70,7 +71,7 @@ const VideosContextProvider = (props) => {
     },
     toggleBookmark: (video) => {
       video.isBookmarked = !video.isBookmarked;
-      console.log("video.isBookmarked", video.isBookmarked);
+      setRerender(!rerender);
     },
   };
   return (

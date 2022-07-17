@@ -1,5 +1,5 @@
 import { VideosContext } from "@/contexts/VideosContext";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import EmptyBookmark from "@/components/icons/EmptyBookmark";
 import FullBookmark from "@/components/icons/FullBookmark";
 import MoviesIcon from "@/components/icons/MoviesIcon";
@@ -23,19 +23,17 @@ const VideoCard = ({ video }) => {
     })`;
     return backgroundImage;
   };
-  useEffect(() => {
-    console.log("Rendering");
-  }, []);
-
   return (
-    <div
-      className="video"
-      style={{ backgroundImage: ` ${backgroundImageInlineStyle(video)}` }}
-    >
-      <div className="video__card">
+    <div className="video">
+      <div
+        className="video__card"
+        style={{ backgroundImage: ` ${backgroundImageInlineStyle(video)}` }}
+      >
         <button
           className="video__bookmark-btn"
-          onClick={() => toggleBookmark(video)}
+          onClick={() => {
+            toggleBookmark(video);
+          }}
           aria-label="Toggle this bookmark"
         >
           {video.isBookmarked ? <FullBookmark /> : <EmptyBookmark />}
