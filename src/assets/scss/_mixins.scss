@@ -1,9 +1,18 @@
+
+@mixin xs {
+  @media screen and (min-width: 15rem) {
+    @content;
+  }
+}@mixin sm {
+  @media screen and (min-width: 30rem) {
+    @content;
+  }
+}
 @mixin md {
   @media screen and (min-width: 45rem) {
     @content;
   }
 }
-
 @mixin lg {
   @media screen and (min-width: 75rem) {
     @content;
