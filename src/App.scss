@@ -1,6 +1,6 @@
-@use './assets/scss/mixins';
-@import './assets/scss/base.scss';
-@import './assets/scss/utilities.scss';
+@use '@public/assets/scss/mixins';
+@import '@public/assets/scss/base.scss';
+@import '@public/assets/scss/utilities.scss';
 
 #root {
   @include mixins.lg {

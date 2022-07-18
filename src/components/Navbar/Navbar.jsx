@@ -4,8 +4,8 @@ import FullBookmark from "../icons/FullBookmark.jsx";
 import HomeIcon from "../icons/HomeIcon.jsx";
 import MoviesIcon from "../icons/MoviesIcon.jsx";
 import TvIcon from "../icons/TvIcon.jsx";
-import Logo from "@/assets/images/logo.svg";
-import Avatar from "@/assets/images/image-avatar.png";
+import Logo from "/assets/images/logo.svg";
+import Avatar from "/assets/images/image-avatar.png";
 import "./Navbar.scss";
 import { VideosContext } from "@/contexts/VideosContext.jsx";
 const Navbar = () => {

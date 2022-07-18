@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useState } from "react";
-import data from "@/assets/data.json";
+import data from "@public/assets/data.json";
 
 export const VideosContext = createContext();
 
